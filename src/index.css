@@ -11,3 +11,29 @@
     url("./fonts/Product_Sans.ttf") format("truetype");
   font-weight: normal;
 }
+
+:root {
+  --bs-light-rgb: 255, 255, 255;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: var(--bs-body-color);
+  font-size: 1.1em;
+  position: relative;
+}
+
+.navbar .navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  margin: auto;
+  background-color: var(--bs-body-color);
+  width: 0%;
+  height: 2px;
+  transition: all 0.3s;
+}
+
+.navbar .navbar-nav .nav-link.active::after {
+  width: 70%;
+}

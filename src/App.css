@@ -1,0 +1,19 @@
+.underlay1::before {
+    content: '';
+    position: absolute;
+    inset: 44% 0 0 0;
+    background-color: black;
+    opacity: 0.45;
+    filter: blur(20px);
+    z-index: 1;
+}
+
+.underlay2::before {
+    content: '';
+    position: absolute;
+    inset: -10% 0 0 0;
+    background-color: white;
+    opacity: 0.88;
+    filter: blur(20px);
+    z-index: -1;
+}

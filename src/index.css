@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "GoboldRegular";
+  src: local("GoboldRegular"),
+    url("./fonts/Gobold_Regular.otf") format("truetype");
+  font-weight: normal;
+}
+  
+@font-face {
+  font-family: "ProductSans";
+  src: local("ProductSans"),
+    url("./fonts/Product_Sans.ttf") format("truetype");
+  font-weight: normal;
+}

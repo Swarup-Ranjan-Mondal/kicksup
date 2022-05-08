@@ -14,6 +14,28 @@
     inset: -10% 0 0 0;
     background-color: white;
     opacity: 0.88;
-    filter: blur(20px);
+    filter: blur(15px);
     z-index: -1;
+}
+
+.custom-radio {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-radio.active::before {
+    inset: 0;
+    content: "\f00c";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: invert(100%);
+    background: rgb(245, 245, 245, 0.5);
+    border: 1px solid rgb(0, 0, 0, 0.1);
 }

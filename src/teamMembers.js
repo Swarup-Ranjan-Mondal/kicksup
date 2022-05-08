@@ -1,4 +1,4 @@
-export default [
+const teamMembers = [
   {
     name: "Zidane",
     imgName: "zidane.jpg",
@@ -30,3 +30,5 @@ export default [
     socials: ["linkedin", "facebook"],
   },
 ];
+
+export default teamMembers;

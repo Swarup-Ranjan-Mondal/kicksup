@@ -16,6 +16,10 @@
   --bs-light-rgb: 255, 255, 255;
 }
 
+body {
+  min-height: 100vh;
+}
+
 .navbar .navbar-nav .nav-link {
   color: var(--bs-body-color);
   font-size: 1.1em;
@@ -25,7 +29,7 @@
 .navbar .navbar-nav .nav-link::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 0.25rem;
   bottom: 5px;
   margin: auto;
   background-color: var(--bs-body-color);
@@ -37,3 +41,14 @@
 .navbar .navbar-nav .nav-link.active::after {
   width: 70%;
 }
+
+/* Check Box Styling */
+.form-check-input:checked {
+  background-color: #17141f;
+  border-color: #17141f;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(23, 20, 31, 25%);
+}
+/*****/

@@ -11,7 +11,7 @@ const TeamMember = ({ name, imgName, role, socials }) => {
       />
       <Card.Body className="px-0 py-4">
         <Card.Title className="text-center my-1">{name}</Card.Title>
-        <Card.Text className="text-sm text-center">{role}</Card.Text>
+        <Card.Text className="text-center">{role}</Card.Text>
         <SocialIcons iconNames={socials} />
       </Card.Body>
     </Card>

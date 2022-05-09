@@ -32,7 +32,6 @@ const CustomRadio = ({
   /* If different radio button clicked then that is marked as selected */
   const radioSelectHandler = (e) => {
     let index = parseInt(e.target.id.substring(6));
-    console.log(e.target.id, index);
 
     if (index !== selected) {
       setSelected(index);

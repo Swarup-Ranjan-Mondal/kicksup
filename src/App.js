@@ -9,7 +9,7 @@ import ContactScreen from "./screens/ContactScreen";
 
 const App = () => {
   return (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}`}>
       {/* Serving the Header component for all urls */}
       <Header />
 

@@ -5,6 +5,7 @@ import SocialIcons from "../components/SocialIcons";
 const ContactScreen = () => {
   return (
     <Container>
+      {/* Contact Card */}
       <Card
         className="shadow p-5 pb-4 bg-body rounded mt-5 mb-4 mx-auto border-0"
         style={{ width: "22rem" }}
@@ -33,9 +34,11 @@ const ContactScreen = () => {
           </Card.Text>
         </Card.Body>
       </Card>
+      {/** **/}
 
       <small className="d-block text-center">stay in touch</small>
 
+      {/* Social handles */}
       <SocialIcons iconNames={["twitter", "insta", "facebook"]} />
     </Container>
   );

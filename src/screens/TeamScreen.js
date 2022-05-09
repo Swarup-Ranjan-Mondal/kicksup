@@ -1,8 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import teamMembers from "../teamMembers";
-import Header from "../components/Header";
-import TeamMember from "../components/TeamMember";
+import TeamMemberCard from "../components/TeamMemberCard";
 
 const TeamScreen = () => {
   return (
@@ -12,6 +11,7 @@ const TeamScreen = () => {
         who makes KICKSUP great. ;)
       </h5>
 
+      {/* Displaying the Team Member cards */}
       <Row>
         {teamMembers.map((teamMember) => (
           <Col
@@ -22,7 +22,7 @@ const TeamScreen = () => {
             lg={3}
             xl={2}
           >
-            <TeamMember
+            <TeamMemberCard
               name={teamMember.name}
               imgName={teamMember.imgName}
               role={teamMember.role}
@@ -31,6 +31,7 @@ const TeamScreen = () => {
           </Col>
         ))}
       </Row>
+      {/** **/}
 
       <h3 className="d-block my-3 text-center">and You! :)</h3>
     </Container>

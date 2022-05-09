@@ -3,6 +3,7 @@ import { Image } from "react-bootstrap";
 
 const SocialIcons = ({ iconNames }) => {
   return (
+    /* Displaying the Social icons */
     <div className="d-flex flex-row justify-content-center">
       {iconNames.map((iconName) => (
         <span key={iconName} className="mx-2">
@@ -14,6 +15,7 @@ const SocialIcons = ({ iconNames }) => {
         </span>
       ))}
     </div>
+    /** **/
   );
 };
 

@@ -5,18 +5,23 @@ const CartSection = () => {
   return (
     <Card className="border-0 shadow bg-body w-100 px-4 pt-3">
       <Card.Body className="px-0 py-2">
+        {/* Main Title */}
         <Card.Title className="d-flex justify-content-between">
           CART
           <i className="fa-solid fa-bag-shopping"></i>
         </Card.Title>
+        {/** **/}
 
+        {/* Shopping Cart */}
         <div
           className="cart d-flex justify-content-center align-items-center"
           style={{ height: "61.8vh" }}
         >
           <p className="text-center">What's stopping you, designer?</p>
         </div>
+        {/** **/}
 
+        {/* Location and Date select */}
         <Row>
           <Col sm={12} md={8} lg={5} xl={4} className="pe-0 mb-1">
             <span className="fw-light text-muted">
@@ -31,7 +36,9 @@ const CartSection = () => {
             </span>
           </Col>
         </Row>
+        {/** **/}
 
+        {/* Order Now button to order items in cart */}
         <Button
           variant="dark"
           size="sm"
@@ -40,6 +47,7 @@ const CartSection = () => {
         >
           Order Now
         </Button>
+        {/** **/}
       </Card.Body>
     </Card>
   );

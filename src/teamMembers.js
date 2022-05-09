@@ -1,3 +1,4 @@
+/* Data of the Team Members */
 const teamMembers = [
   {
     name: "Zidane",

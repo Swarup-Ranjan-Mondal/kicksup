@@ -1,3 +1,4 @@
+/* Loading custom fonts */ 
 @font-face {
   font-family: "GoboldRegular";
   src: local("GoboldRegular"),
@@ -11,15 +12,20 @@
     url("./fonts/Product_Sans.ttf") format("truetype");
   font-weight: normal;
 }
+/** **/
+
 
 :root {
   --bs-light-rgb: 255, 255, 255;
 }
 
 body {
+  max-width: 100vw;
   min-height: 100vh;
+  font-family: ProductSans;
 }
 
+/* Link underline animation */
 .navbar .navbar-nav .nav-link {
   color: var(--bs-body-color);
   font-size: 1.1em;
@@ -41,6 +47,7 @@ body {
 .navbar .navbar-nav .nav-link.active::after {
   width: 70%;
 }
+/** **/
 
 /* Check Box Styling */
 .form-check-input:checked {
@@ -51,4 +58,4 @@ body {
 .form-check-input:focus {
   box-shadow: 0 0 0 0.25rem rgba(23, 20, 31, 25%);
 }
-/*****/
+/** **/

@@ -16,7 +16,8 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
   return (
     <Card className="border-0 shadow w-100 px-4 pt-3 pb-2">
       <Card.Body className="py-2" style={{ paddingLeft: "3rem" }}>
-        <Row className="position-relative mb-2">
+        <Row className="position-relative mb-3">
+          {/* Back button */}
           <span
             className="position-absolute"
             style={{ left: "-3rem", top: "-0.2rem" }}
@@ -27,40 +28,66 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
               onClick={() => setShowDesignSpace(false)}
             ></i>
           </span>
+          {/** **/}
+
+          {/* Main Title */}
           <Card.Title className="fw-normal">Your Design Space</Card.Title>
         </Row>
         <Row>
+          {/* Main shoe image */}
           <Col sm={12} md={12} lg={9} xl={6}>
             <Card.Img
               src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
               style={{
-                aspectRatio: "64/63",
+                aspectRatio: "64/61",
               }}
             />
           </Col>
-          <Col xs={2} className="d-flex flex-column justify-content-between">
-            <Card.Img
-              src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
-            />
-            <Card.Img
-              src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
-            />
-            <Card.Img
-              src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
-            />
+          {/** **/}
+
+          {/* Sample shoe images */}
+          <Col sm={12} md={12} lg={2} xl={2}>
+            <Row className="h-100">
+              <Col sm={4} md={4} lg={12} xl={12}>
+                <Card.Img
+                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
+                />
+              </Col>
+
+              <Col sm={4} md={4} lg={12} xl={12}>
+                <Card.Img
+                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
+                />
+              </Col>
+
+              <Col sm={4} md={4} lg={12} xl={12}>
+                <Card.Img
+                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
+                />
+              </Col>
+            </Row>
           </Col>
+          {/** **/}
+
           <Col xs={4}>
+            {/* Name and brand */}
             <h4 className="fw-normal mb-0">{shoe.name}</h4>
             <p className="fw-light mb-2">by KICKSUP</p>
+            {/** **/}
 
+            {/* Rating and reviews */}
             <Rating value={shoe.rating} />
-            <p style={{ fontSize: "0.65rem" }}>80 reviews</p>
+            <p style={{ fontSize: "0.7rem" }}>80 reviews</p>
+            {/** **/}
 
+            {/* Price and offers */}
             <small>Rs. {shoe.price}/-</small>
-            <p style={{ fontSize: "0.65rem" }}>
+            <p style={{ fontSize: "0.7rem" }}>
               Get an exclusive 20% off shopping with HDFC bank
             </p>
+            {/** **/}
 
+            {/* Shoe's Front select */}
             <Row className="my-2 d-flex align-items-center">
               <Col sm={12} md={6} lg={4} xl={3} className="pe-0">
                 Front
@@ -73,7 +100,9 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
                 />
               </Col>
             </Row>
+            {/** **/}
 
+            {/* Shoe's Middle select */}
             <Row className="my-2 d-flex align-items-center">
               <Col sm={12} md={6} lg={4} xl={3} className="pe-0">
                 Middle
@@ -86,7 +115,9 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
                 />
               </Col>
             </Row>
+            {/** **/}
 
+            {/* Shoe's Back select */}
             <Row className="my-2 d-flex align-items-center">
               <Col sm={12} md={6} lg={4} xl={3} className="pe-0">
                 Back
@@ -99,7 +130,9 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
                 />
               </Col>
             </Row>
+            {/** **/}
 
+            {/* Shoe's Sole select */}
             <Row className="my-2 d-flex align-items-center">
               <Col sm={12} md={6} lg={4} xl={3} className="pe-0">
                 Sole
@@ -112,7 +145,9 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
                 />
               </Col>
             </Row>
+            {/** **/}
 
+            {/* Shoe's Size select */}
             <Row className="my-2 d-flex align-items-center">
               <Col sm={12} md={6} lg={4} xl={3} className="pe-0">
                 Size
@@ -126,16 +161,19 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
                 />
               </Col>
             </Row>
-            <div className="d-flex align-items-center"></div>
+            {/** **/}
           </Col>
         </Row>
 
         <Row>
+          {/* Rate product option */}
           <div className="d-flex gap-3 mt-2 mb-3">
             <span>Rate product</span>
             <Rating value={0} />
           </div>
+          {/** **/}
 
+          {/* 'Share Design' and 'Add To Cart' buttons */}
           <div className="d-flex justify-content-center gap-3">
             <Button variant="outline-dark" size="sm">
               Share Design
@@ -144,6 +182,7 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
               Add To Cart
             </Button>
           </div>
+          {/** **/}
         </Row>
       </Card.Body>
     </Card>

@@ -10,6 +10,9 @@ const CustomRadio = ({
   const [selected, setSelected] = useState();
 
   useEffect(() => {
+    /* Checking whether the default value is part of options */
+    /* If not (in this case the index will be -1), nothing is done */
+    /* If yes then the corresponding radio button is marked as selected */
     let index = -1;
 
     options.forEach((option, i) => {
@@ -18,11 +21,15 @@ const CustomRadio = ({
       }
     });
 
-    if (index != -1) {
+    if (index !== -1) {
       setSelected(index);
     }
-  }, [defaultValue]);
+    /** **/
+  }, [defaultValue, options]);
 
+  /* Function to handle situation when a radio is clicked */
+  /* Nothing is done if the marked radio button is clicked */
+  /* If different radio button clicked then that is marked as selected */
   const radioSelectHandler = (e) => {
     let index = parseInt(e.target.id.substring(6));
     console.log(e.target.id, index);
@@ -36,12 +43,15 @@ const CustomRadio = ({
       }
     }
   };
+  /** **/
 
   return (
+    /* Displaying the Custom Radio buttons */
     <Row>
       {options.map((option, index) => {
         const styles = {};
 
+        /* Displaying background image if showValue is false else the value */
         if (!showValue) {
           styles.backgroundImage = `url(${process.env.PUBLIC_URL}/images/variants/${option}.png)`;
         } else {
@@ -50,6 +60,7 @@ const CustomRadio = ({
           styles.justifyContent = "center";
           styles.alignItems = "center";
         }
+        /** **/
 
         return (
           <Col key={index} sm={6} md={4} lg={3} xl={2} className="pe-0 py-2">
@@ -67,6 +78,7 @@ const CustomRadio = ({
         );
       })}
     </Row>
+    /** **/
   );
 };
 

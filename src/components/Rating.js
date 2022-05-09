@@ -4,6 +4,7 @@ const Rating = ({ value }) => {
   const color = "#FFC94D";
 
   return (
+    /* Displaying Star Rating based on the value */
     <div>
       <span>
         <i
@@ -66,6 +67,7 @@ const Rating = ({ value }) => {
         ></i>
       </span>
     </div>
+    /** **/
   );
 };
 

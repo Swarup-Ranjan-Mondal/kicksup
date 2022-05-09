@@ -1,3 +1,4 @@
+/* Data of the shoes to be displayed in Store */
 const shoes = [
   {
     name: "KSL 01",

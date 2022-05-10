@@ -18,7 +18,7 @@ const DisplaySection = ({ setShoe, setShowDesignSpace }) => {
             <Nav className="ms-auto d-flex">
               <i
                 className="fa-solid fa-magnifying-glass me-3 my-auto"
-                type="button"
+                role="button"
               ></i>
               <Button variant="outline-dark" size="sm">
                 Sort By

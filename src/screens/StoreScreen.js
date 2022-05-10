@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import FilteringSection from "../sections/FilteringSection";
 import DisplaySection from "../sections/DisplaySection";
@@ -13,7 +13,20 @@ import DesignSpaceSection from "../sections/DesignSpaceSection";
 /* Sections are displayed based on condition */
 const StoreScreen = () => {
   const [shoe, setShoe] = useState();
+  const [cartItems, setCartItems] = useState([]);
   const [showDesignSpace, setShowDesignSpace] = useState(false);
+
+  useEffect(() => {
+    /* Check local storage for cart items */
+    /* If present then set them to cartItems state */
+    /* If not set an empty array to cartItems state */
+    const cartItemsFromStorage = localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [];
+
+    setCartItems(cartItemsFromStorage);
+    /** **/
+  }, []);
 
   return (
     <Container fluid={true} className="pt-2">
@@ -37,6 +50,8 @@ const StoreScreen = () => {
           <Col xs={9}>
             <DesignSpaceSection
               shoe={shoe}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
               setShowDesignSpace={setShowDesignSpace}
             />
           </Col>
@@ -45,7 +60,7 @@ const StoreScreen = () => {
 
         {/* Cart section is displayed always  */}
         <Col xs={3}>
-          <CartSection />
+          <CartSection cartItems={cartItems} setCartItems={setCartItems} />
         </Col>
         {/** **/}
       </Row>

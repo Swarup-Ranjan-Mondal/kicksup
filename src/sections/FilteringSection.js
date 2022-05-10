@@ -30,7 +30,7 @@ const FilteringSection = () => {
               src={`${process.env.PUBLIC_URL}/images/colors/${color}.png`}
               className="me-3 mb-3"
               width="30px"
-              type="button"
+              role="button"
             />
           ))}
         </Form>

@@ -7,13 +7,14 @@ const ShoesProductCard = ({ name, price, imgName, rating, onClick }) => {
     <Card
       className="border-0 mt-2"
       style={{ width: "190px" }}
-      type="button"
+      role="button"
       onClick={onClick}
     >
       {/* Image of the shoe */}
       <Card.Img
         height="190px"
         src={`${process.env.PUBLIC_URL}/images/shoes/${imgName}`}
+        className="border border-1"
       />
 
       <Card.Body className="px-0 py-2">
@@ -23,7 +24,7 @@ const ShoesProductCard = ({ name, price, imgName, rating, onClick }) => {
         <Row>
           <Col>
             {/* Price of the shoe */}
-            <Card.Text className="small">Rs.{price}/-</Card.Text>
+            <Card.Text className="small">Rs. {price}/-</Card.Text>
           </Col>
 
           <Col>

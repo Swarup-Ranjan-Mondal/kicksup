@@ -3,7 +3,12 @@ import { Row, Col, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
 import CustomRadio from "../components/CustomRadio";
 
-const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
+const DesignSpaceSection = ({
+  shoe,
+  cartItems,
+  setCartItems,
+  setShowDesignSpace,
+}) => {
   const variants = ["variant1", "variant2", "variant3"];
   const sizes = [7, 8, 9, 10];
 
@@ -12,6 +17,31 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
   const [back, setBack] = useState(variants[0]);
   const [sole, setSole] = useState(variants[0]);
   const [size, setSize] = useState(sizes[1]);
+
+  const addToCartHandler = () => {
+    /* Check the item is present in the Cart or not */
+    const existItem = cartItems.find((item) => item.itemId === shoe.id);
+
+    if (existItem === undefined) {
+      /* Add the item in cart as it doesn't exists */
+      const updatedCartItems = [
+        ...cartItems,
+        {
+          itemId: shoe.id,
+          name: shoe.name,
+          brand: shoe.brand,
+          imgName: shoe.imgName,
+          price: shoe.price,
+        },
+      ];
+      /** **/
+
+      /* Updating the cartItems state and local storage */
+      setCartItems(updatedCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+      /** **/
+    }
+  };
 
   return (
     <Card className="border-0 shadow w-100 px-4 pt-3 pb-2">
@@ -24,7 +54,7 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
           >
             <i
               className="fa-solid fa-angle-left fa-2x"
-              type="button"
+              role="button"
               onClick={() => setShowDesignSpace(false)}
             ></i>
           </span>
@@ -178,7 +208,7 @@ const DesignSpaceSection = ({ shoe, setShowDesignSpace }) => {
             <Button variant="outline-dark" size="sm">
               Share Design
             </Button>
-            <Button variant="dark" size="sm">
+            <Button variant="dark" size="sm" onClick={addToCartHandler}>
               Add To Cart
             </Button>
           </div>

@@ -7,7 +7,7 @@ const CartItemCard = ({ cartItem, removeFromCartHandler }) => {
       {/* Remove from Cart button (X mark of red color) */}
       <i
         className="fa-regular fa-circle-xmark item-card-xmark"
-        onClick={() => removeFromCartHandler(cartItem.itemId)}
+        onClick={() => removeFromCartHandler(cartItem.itemId, cartItem.size)}
       ></i>
 
       {/* Cart item's image */}
@@ -27,12 +27,17 @@ const CartItemCard = ({ cartItem, removeFromCartHandler }) => {
         <h6 className="mb-0">{cartItem.name}</h6>
 
         {/* Cart item's brand */}
-        <p className="mb-1" style={{ fontSize: "0.7rem" }}>
+        <p className="mb-1 text-black-50" style={{ fontSize: "0.74rem" }}>
           by {cartItem.brand}
         </p>
 
+        {/* Cart item's size */}
+        <small className="d-block mb-1 text-black-50 fw-light">
+          Size: {cartItem.size}
+        </small>
+
         {/* Cart item's price */}
-        <small>Rs. {cartItem.price}/-</small>
+        <small className="d-block mb-2">Rs. {cartItem.price}/-</small>
       </Col>
     </Row>
   );

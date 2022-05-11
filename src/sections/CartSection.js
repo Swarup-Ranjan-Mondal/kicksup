@@ -3,10 +3,10 @@ import { Card, Button, Row, Col } from "react-bootstrap";
 import CartItemCard from "../components/CartItemCard";
 
 const CartSection = ({ cartItems, setCartItems }) => {
-  const removeFromCartHandler = (cartItemId) => {
-    /* Remove the cart item with the given id */
+  const removeFromCartHandler = (cartItemId, size) => {
+    /* Remove the cart item with given id & size */
     const updatedCartItems = cartItems.filter(
-      (item) => item.itemId !== cartItemId
+      (item) => !(item.itemId === cartItemId && item.size === size)
     );
     /** **/
 
@@ -38,7 +38,7 @@ const CartSection = ({ cartItems, setCartItems }) => {
           ) : (
             cartItems.map((item) => (
               <CartItemCard
-                key={item.itemId}
+                key={`${item.itemId}-s${item.size}`}
                 cartItem={item}
                 removeFromCartHandler={removeFromCartHandler}
               />

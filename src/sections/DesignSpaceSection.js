@@ -19,8 +19,10 @@ const DesignSpaceSection = ({
   const [size, setSize] = useState(sizes[1]);
 
   const addToCartHandler = () => {
-    /* Check the item is present in the Cart or not */
-    const existItem = cartItems.find((item) => item.itemId === shoeToShow.id);
+    /* Check the item of  the selected size is present in the Cart or not */
+    const existItem = cartItems.find(
+      (item) => item.itemId === shoeToShow.id && item.size === size
+    );
 
     if (existItem === undefined) {
       /* Add the item in cart as it doesn't exists */
@@ -32,6 +34,7 @@ const DesignSpaceSection = ({
           brand: shoeToShow.brand,
           imgName: shoeToShow.imgName,
           price: shoeToShow.price,
+          size: size,
         },
       ];
       /** **/

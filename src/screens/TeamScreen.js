@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import teamMembers from "../teamMembers";
+import teamMembersData from "../teamMembersData";
 import TeamMemberCard from "../components/TeamMemberCard";
 
 const TeamScreen = () => {
@@ -13,7 +13,7 @@ const TeamScreen = () => {
 
       {/* Displaying the Team Member cards */}
       <Row>
-        {teamMembers.map((teamMember) => (
+        {teamMembersData.map((teamMember) => (
           <Col
             key={teamMember.imgName}
             className="d-flex justify-content-center mx-auto"

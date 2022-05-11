@@ -1,7 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Form, Button, Image } from "react-bootstrap";
 
-const FilteringSection = () => {
+const FilteringSection = ({ filters, setFilters }) => {
+  const [cost, setCost] = useState({ value: "", checked: false });
+  const [type, setType] = useState({ value: "", checked: false });
+
+  const applyFiltersHandler = () => {
+    /* Process and store all selected filters */
+    const updatedFilters = {};
+
+    if (cost.checked) {
+      const costLimits = cost.value.split("-");
+      const minLimit =
+        costLimits.length === 2
+          ? parseInt(costLimits[0])
+          : parseInt(costLimits[0].split("+")[0]);
+      const maxLimit =
+        costLimits.length === 2 ? parseInt(costLimits[1]) : Infinity;
+
+      updatedFilters.cost = { min: minLimit, max: maxLimit };
+    }
+
+    if (type.checked) {
+      updatedFilters.type = type.value;
+    }
+    /** **/
+
+    /* Compare to see whether filters have been updated */
+    /* If yes then update filters state else do nothing */
+    if (JSON.stringify(updatedFilters) !== JSON.stringify(filters)) {
+      setFilters(updatedFilters);
+    }
+    /** **/
+  };
+
   return (
     <Card className="border-0 shadow w-100 px-4 pt-3">
       <Card.Body className="px-0 py-2">
@@ -15,8 +47,19 @@ const FilteringSection = () => {
         {/* Options to filter by Cost */}
         <Card.Title className="mt-4">Cost</Card.Title>
         <Form>
-          {["Rs. 1500-4000", "Rs. 4001-7000", "Rs. 7001+"].map((label) => (
-            <Form.Check key={label} type="checkbox" label={label} />
+          {["1500-4000", "4001-7000", "7001+"].map((label) => (
+            <Form.Check
+              key={label}
+              type="checkbox"
+              label={`Rs. ${label}`}
+              disabled={cost.checked && cost.value !== label}
+              onChange={() => {
+                setCost({
+                  checked: !cost.checked,
+                  value: !cost.checked ? label : "",
+                });
+              }}
+            />
           ))}
         </Form>
         {/** **/}
@@ -49,7 +92,18 @@ const FilteringSection = () => {
         <Card.Title className="mt-4">Type</Card.Title>
         <Form>
           {["Loafers", "Sneakers"].map((label) => (
-            <Form.Check key={label} type="checkbox" label={label} />
+            <Form.Check
+              key={label}
+              type="checkbox"
+              label={label}
+              disabled={type.checked && type.value !== label}
+              onChange={() => {
+                setType({
+                  checked: !type.checked,
+                  value: !type.checked ? label : "",
+                });
+              }}
+            />
           ))}
         </Form>
         {/** **/}
@@ -60,6 +114,7 @@ const FilteringSection = () => {
           size="sm"
           className="d-block mb-2 mx-auto"
           style={{ marginTop: "3.3rem" }}
+          onClick={applyFiltersHandler}
         >
           Apply
         </Button>

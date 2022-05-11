@@ -1,5 +1,5 @@
 /* Data of the Team Members */
-const teamMembers = [
+const teamMembersData = [
   {
     name: "Zidane",
     imgName: "zidane.jpg",
@@ -32,4 +32,4 @@ const teamMembers = [
   },
 ];
 
-export default teamMembers;
+export default teamMembersData;

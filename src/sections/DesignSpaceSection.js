@@ -4,7 +4,7 @@ import Rating from "../components/Rating";
 import CustomRadio from "../components/CustomRadio";
 
 const DesignSpaceSection = ({
-  shoe,
+  shoeToShow,
   cartItems,
   setCartItems,
   setShowDesignSpace,
@@ -20,18 +20,18 @@ const DesignSpaceSection = ({
 
   const addToCartHandler = () => {
     /* Check the item is present in the Cart or not */
-    const existItem = cartItems.find((item) => item.itemId === shoe.id);
+    const existItem = cartItems.find((item) => item.itemId === shoeToShow.id);
 
     if (existItem === undefined) {
       /* Add the item in cart as it doesn't exists */
       const updatedCartItems = [
         ...cartItems,
         {
-          itemId: shoe.id,
-          name: shoe.name,
-          brand: shoe.brand,
-          imgName: shoe.imgName,
-          price: shoe.price,
+          itemId: shoeToShow.id,
+          name: shoeToShow.name,
+          brand: shoeToShow.brand,
+          imgName: shoeToShow.imgName,
+          price: shoeToShow.price,
         },
       ];
       /** **/
@@ -67,7 +67,7 @@ const DesignSpaceSection = ({
           {/* Main shoe image */}
           <Col sm={12} md={12} lg={9} xl={6}>
             <Card.Img
-              src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
+              src={`${process.env.PUBLIC_URL}/images/shoes/${shoeToShow.imgName}`}
               style={{
                 aspectRatio: "64/61",
               }}
@@ -80,19 +80,19 @@ const DesignSpaceSection = ({
             <Row className="h-100">
               <Col sm={4} md={4} lg={12} xl={12}>
                 <Card.Img
-                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
+                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoeToShow.imgName}`}
                 />
               </Col>
 
               <Col sm={4} md={4} lg={12} xl={12}>
                 <Card.Img
-                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
+                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoeToShow.imgName}`}
                 />
               </Col>
 
               <Col sm={4} md={4} lg={12} xl={12}>
                 <Card.Img
-                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoe.imgName}`}
+                  src={`${process.env.PUBLIC_URL}/images/shoes/${shoeToShow.imgName}`}
                 />
               </Col>
             </Row>
@@ -101,17 +101,17 @@ const DesignSpaceSection = ({
 
           <Col xs={4}>
             {/* Name and brand */}
-            <h4 className="fw-normal mb-0">{shoe.name}</h4>
-            <p className="fw-light mb-2">by KICKSUP</p>
+            <h4 className="fw-normal mb-0">{shoeToShow.name}</h4>
+            <p className="fw-light mb-2">by {shoeToShow.brand}</p>
             {/** **/}
 
             {/* Rating and reviews */}
-            <Rating value={shoe.rating} />
+            <Rating value={shoeToShow.rating} />
             <p style={{ fontSize: "0.7rem" }}>80 reviews</p>
             {/** **/}
 
             {/* Price and offers */}
-            <small>Rs. {shoe.price}/-</small>
+            <small>Rs. {shoeToShow.price}/-</small>
             <p style={{ fontSize: "0.7rem" }}>
               Get an exclusive 20% off shopping with HDFC bank
             </p>

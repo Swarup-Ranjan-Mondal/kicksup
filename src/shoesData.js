@@ -1,5 +1,5 @@
 /* Data of the shoes to be displayed in Store */
-const shoes = [
+const shoesData = [
   {
     id: "1",
     name: "KSL 01",
@@ -56,4 +56,4 @@ const shoes = [
   },
 ];
 
-export default shoes;
+export default shoesData;

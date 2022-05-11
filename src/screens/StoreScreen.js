@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import shoesData from "../shoesData";
 import FilteringSection from "../sections/FilteringSection";
 import DisplaySection from "../sections/DisplaySection";
 import CartSection from "../sections/CartSection";
@@ -12,9 +13,32 @@ import DesignSpaceSection from "../sections/DesignSpaceSection";
 /* 4. Cart section */
 /* Sections are displayed based on condition */
 const StoreScreen = () => {
-  const [shoe, setShoe] = useState();
+  const [shoes, setShoes] = useState([]);
+  const [shoeToShow, setShoeToShow] = useState();
+  const [filters, setFilters] = useState({});
   const [cartItems, setCartItems] = useState([]);
   const [showDesignSpace, setShowDesignSpace] = useState(false);
+
+  useEffect(() => {
+    /* Filter down the shoes based on selected filters */
+    let filteredShoes = shoesData;
+
+    if (filters.cost) {
+      filteredShoes = filteredShoes.filter(
+        (shoe) =>
+          shoe.price >= filters.cost.min && shoe.price <= filters.cost.max
+      );
+    }
+
+    if (filters.type) {
+      filteredShoes = filteredShoes.filter(
+        (shoe) => shoe.type === filters.type
+      );
+    }
+
+    setShoes(filteredShoes);
+    /** **/
+  }, [filters]);
 
   useEffect(() => {
     /* Check local storage for cart items */
@@ -37,11 +61,12 @@ const StoreScreen = () => {
         {!showDesignSpace ? (
           <>
             <Col xs={3}>
-              <FilteringSection />
+              <FilteringSection filters={filters} setFilters={setFilters} />
             </Col>
             <Col xs={6}>
               <DisplaySection
-                setShoe={setShoe}
+                shoes={shoes}
+                setShoeToShow={setShoeToShow}
                 setShowDesignSpace={setShowDesignSpace}
               />
             </Col>
@@ -49,7 +74,7 @@ const StoreScreen = () => {
         ) : (
           <Col xs={9}>
             <DesignSpaceSection
-              shoe={shoe}
+              shoeToShow={shoeToShow}
               cartItems={cartItems}
               setCartItems={setCartItems}
               setShowDesignSpace={setShowDesignSpace}

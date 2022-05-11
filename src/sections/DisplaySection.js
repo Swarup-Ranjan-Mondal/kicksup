@@ -1,14 +1,13 @@
 import React from "react";
 import { Row, Col, Card, Button, Nav, Navbar } from "react-bootstrap";
-import shoes from "../shoes";
 import ShoesProductCard from "../components/ShoesProductCard";
 
-const DisplaySection = ({ setShoe, setShowDesignSpace }) => {
+const DisplaySection = ({ shoes, setShoeToShow, setShowDesignSpace }) => {
   return (
-    <Card className="border-0 shadow w-100 p-3">
+    <Card className="border-0 shadow w-100 p-3 ps-4">
       <Card.Body className="p-0">
         {/* Top nav */}
-        <Navbar bg="light" expand="lg" className="pt-0 pb-3">
+        <Navbar bg="light" expand="lg" className="me-2 pt-0 pb-3">
           {/* Main Title */}
           <Navbar.Brand className="m-0">SHOES</Navbar.Brand>
 
@@ -30,21 +29,34 @@ const DisplaySection = ({ setShoe, setShowDesignSpace }) => {
         {/** **/}
 
         {/* Displaying Shoes Product Cards */}
-        <Row>
-          {shoes.map((shoe, i) => (
-            <Col key={i} sm={12} md={6} lg={5} xl={4}>
-              <ShoesProductCard
-                name={shoe.name}
-                imgName={shoe.imgName}
-                price={shoe.price}
-                rating={shoe.rating}
-                onClick={(e) => {
-                  setShoe(shoe);
-                  setShowDesignSpace(true);
-                }}
-              />
-            </Col>
-          ))}
+        <Row style={{ minHeight: "71vh" }}>
+          {shoes.length === 0 ? (
+            <p className="text-center" style={{ marginTop: "24vh" }}>
+              Nothing to show! ;(
+            </p>
+          ) : (
+            shoes.map((shoe, i) => (
+              <Col
+                key={i}
+                sm={12}
+                md={6}
+                lg={6}
+                xl={4}
+                className="d-flex justify-content-center"
+              >
+                <ShoesProductCard
+                  name={shoe.name}
+                  imgName={shoe.imgName}
+                  price={shoe.price}
+                  rating={shoe.rating}
+                  onClick={(e) => {
+                    setShoeToShow(shoe);
+                    setShowDesignSpace(true);
+                  }}
+                />
+              </Col>
+            ))
+          )}
         </Row>
         {/** **/}
       </Card.Body>
